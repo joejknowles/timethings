@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import styled, { createGlobalStyle } from "styled-components";
+
+const StyleBody = createGlobalStyle`
+  body, #root, html {
+    height: 100%;
+    margin: 0;
+    font-family: work sans;
+    font-size: 16px;
+  }
+`;
 
 const boxBreathing = [
   { name: "Breathe in" },
@@ -15,6 +25,14 @@ const incrementTo = (value, max) => {
   return value + 1;
 };
 
+const Step = styled.div`
+  font-size: 4rem;
+  text-align: center;
+  padding-top: 10vh;
+  height: 90vh;
+  background-color: hsl(240, 10%, 90%);
+`;
+
 const App = () => {
   const [stepIndex, setStepIndex] = useState(0);
   const step = boxBreathing[stepIndex];
@@ -25,9 +43,10 @@ const App = () => {
     }, 4000)
   }, [])
   return (
-    <div>
+    <Step>
+      <StyleBody/>
       { step.name }
-    </div>
+    </Step>
   );
 }
 
