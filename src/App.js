@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleBody } from './styles';
-import { Timer } from './timer/Timer';
+import React from "react";
+import { StyleBody } from "./styles";
+import { Timer } from "./timer/Timer";
 
 const App = () => {
   return (

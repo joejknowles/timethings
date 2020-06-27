@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "cypress": "^4.9.0",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
@@ -13,7 +14,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "ft": "cypress open"
+    "ft": "cypress open",
+    "pret": "prettier --write \"src/**/*.js\" \"cypress/**/*.js\""
   },
   "eslintConfig": {
     "extends": "react-app"

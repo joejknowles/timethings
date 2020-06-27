@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { boxBreathing } from './presetTimers';
-import { incrementTo } from '../utils';
+import { boxBreathing } from "./presetTimers";
+import { incrementTo } from "../utils";
 
 const Step = styled.div`
   font-size: 4rem;
@@ -14,21 +14,17 @@ const Step = styled.div`
 const startTimer = (setIndex, index) => {
   const step = boxBreathing[index];
   setTimeout(() => {
-    const nextIndex = incrementTo(index, 3)
+    const nextIndex = incrementTo(index, 3);
     setIndex(nextIndex);
-    startTimer(setIndex, nextIndex)
+    startTimer(setIndex, nextIndex);
   }, step.duration);
-}
+};
 
 export const Timer = () => {
   const [stepIndex, setStepIndex] = useState(0);
   const step = boxBreathing[stepIndex];
   useEffect(() => {
     startTimer(setStepIndex, 0);
-  }, [])
-  return (
-    <Step>
-      { step.name }
-    </Step>
-  );
+  }, []);
+  return <Step>{step.name}</Step>;
 };

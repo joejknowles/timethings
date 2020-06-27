@@ -1,12 +1,12 @@
 /// <reference types="cypress" />
 
-context('Timer', () => {
+context("Timer", () => {
   beforeEach(() => {
     cy.clock();
-    cy.visit('/')
-  })
+    cy.visit("/");
+  });
 
-  it('Displays Box Breathing steps correctly', () => {
+  it("Displays Box Breathing steps correctly", () => {
     cy.contains("Breathe in");
     cy.tick(4000);
     cy.contains("Hold");
@@ -14,5 +14,5 @@ context('Timer', () => {
     cy.contains("Breathe out");
     cy.tick(4000);
     cy.contains("Hold");
-  })
-})
+  });
+});
