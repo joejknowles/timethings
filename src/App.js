@@ -11,11 +11,11 @@ const StyleBody = createGlobalStyle`
   }
 `;
 
-const boxBreathing = [
-  { name: "Breathe in" },
-  { name: "Hold" },
-  { name: "Breathe out" },
-  { name: "Hold" },
+let boxBreathing = [
+  { name: "Breathe in", duration: 4000 },
+  { name: "Hold", duration: 4000 },
+  { name: "Breathe out", duration: 4000 },
+  { name: "Hold", duration: 4000 },
 ];
 
 const incrementTo = (value, max) => {
@@ -33,14 +33,20 @@ const Step = styled.div`
   background-color: hsl(240, 10%, 90%);
 `;
 
+const startStep = (setIndex, index) => {
+  const step = boxBreathing[index];
+  setTimeout(() => {
+    const nextIndex = incrementTo(index, 3)
+    setIndex(nextIndex);
+    startStep(setIndex, nextIndex)
+  }, step.duration);
+}
+
 const App = () => {
   const [stepIndex, setStepIndex] = useState(0);
   const step = boxBreathing[stepIndex];
-
   useEffect(() => {
-    setInterval(() => {
-      setStepIndex(prev => incrementTo(prev, 3));
-    }, 4000)
+    startStep(setStepIndex, 0);
   }, [])
   return (
     <Step>
