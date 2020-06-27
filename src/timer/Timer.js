@@ -10,5 +10,5 @@ export const Timer = () => {
   useEffect(() => {
     startTimer(setStepIndex, 0, boxBreathing);
   }, []);
-  return <Step { ...step } />;
+  return <Step {...step} />;
 };
